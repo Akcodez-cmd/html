@@ -1,686 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ajith AK!!!! · Developer Portfolio</title>
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    /* ----- reset & base ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      background: #f8fafc;
-      color: #0b1120;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ----- buttons & links ----- */
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      background: white;
-      color: #0b1120;
-      border: 1px solid #d1d9e6;
-      transition: all 0.2s ease;
-      cursor: default;
-    }
-
-    .btn-primary {
-      background: #2563eb;
-      border: 1px solid #2563eb;
-      color: white;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-      border-color: #1d4ed8;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.4);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #d1d9e6;
-    }
-
-    .btn-outline:hover {
-      background: #eef2f8;
-      border-color: #b0bed6;
-    }
-
-    /* ----- header / nav ----- */
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 0 16px;
-      flex-wrap: wrap;
-      gap: 14px;
-      border-bottom: 1px solid #e9edf4;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo i {
-      color: #2563eb;
-      font-size: 2rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      font-weight: 500;
-      color: #1e293b;
-    }
-
-    .nav-links a {
-      transition: color 0.15s;
-    }
-
-    .nav-links a:hover {
-      color: #2563eb;
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .nav-actions .btn {
-      padding: 8px 22px;
-      font-size: 0.9rem;
-    }
-
-    /* ----- hero section (developer) ----- */
-    .hero {
-      padding: 40px 0 50px;
-    }
-
-    .hero-grid {
-      display: flex;
-      align-items: center;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
-
-    .hero-content {
-      flex: 1 1 45%;
-      min-width: 300px;
-    }
-
-    .hero-content .badge {
-      display: inline-block;
-      background: #e0edff;
-      color: #1e4f8a;
-      font-weight: 600;
-      font-size: 0.8rem;
-      padding: 6px 18px;
-      border-radius: 40px;
-      letter-spacing: 0.3px;
-      margin-bottom: 20px;
-      border: 1px solid #bed9ff;
-    }
-
-    .hero-content h1 {
-      font-size: 3.4rem;
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-      color: #0a0f1e;
-    }
-
-    .hero-content h1 span {
-      background: linear-gradient(145deg, #2563eb, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      color: #334155;
-      max-width: 520px;
-      margin-bottom: 28px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .hero-image {
-      flex: 1 1 45%;
-      min-width: 260px;
-      background: #eef2f9;
-      border-radius: 40px;
-      padding: 20px 20px 10px;
-      text-align: center;
-      box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.08);
-      border: 1px solid #dfe6f2;
-    }
-
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 24px;
-      display: block;
-    }
-
-    .hero-image .caption {
-      margin-top: 14px;
-      font-size: 0.9rem;
-      color: #334155;
-      display: flex;
-      justify-content: center;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .caption span i {
-      color: #2563eb;
-      margin-right: 6px;
-    }
-
-    /* ----- section headers ----- */
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 48px;
-    }
-
-    .section-header h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      margin-bottom: 10px;
-    }
-
-    .section-header p {
-      font-size: 1.1rem;
-      color: #475569;
-    }
-
-    /* ----- skills / tech stack ----- */
-    .skills {
-      padding: 50px 0 60px;
-      background: white;
-      border-radius: 48px 48px 0 0;
-      margin-top: 20px;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 24px 16px;
-    }
-
-    .skill-card {
-      background: #f1f5f9;
-      border-radius: 28px;
-      padding: 22px 10px;
-      text-align: center;
-      border: 1px solid #e2eaf3;
-      transition: all 0.15s;
-    }
-
-    .skill-card:hover {
-      background: white;
-      border-color: #b6cae5;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px -8px rgba(0,0,0,0.06);
-    }
-
-    .skill-card i {
-      font-size: 2.2rem;
-      color: #2563eb;
-      margin-bottom: 8px;
-    }
-
-    .skill-card span {
-      display: block;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    /* ----- projects (portfolio) ----- */
-    .projects {
-      padding: 60px 0 70px;
-      background: white;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-    }
-
-    .project-card {
-      background: #f8fafc;
-      border-radius: 32px;
-      padding: 28px 24px 24px;
-      border: 1px solid #e9eef6;
-      transition: all 0.2s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      border-color: #cbd8ec;
-      background: white;
-      box-shadow: 0 16px 32px -12px rgba(0,0,0,0.06);
-    }
-
-    .project-card .icon {
-      font-size: 2rem;
-      color: #2563eb;
-      margin-bottom: 12px;
-    }
-
-    .project-card h3 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .project-card p {
-      color: #475569;
-      font-size: 0.95rem;
-      margin-bottom: 18px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .project-tags span {
-      background: #e9edf4;
-      padding: 4px 14px;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #1e293b;
-    }
-
-    .project-card .project-link {
-      margin-top: 18px;
-      display: inline-block;
-      font-weight: 600;
-      color: #2563eb;
-    }
-
-    .project-card .project-link i {
-      margin-left: 6px;
-      transition: transform 0.15s;
-    }
-
-    .project-card .project-link:hover i {
-      transform: translateX(4px);
-    }
-
-    /* ----- experience / about snippet ----- */
-    .experience {
-      padding: 30px 0 60px;
-      background: #f8fafc;
-    }
-
-    .exp-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    .exp-item {
-      flex: 1 1 260px;
-      background: white;
-      border-radius: 32px;
-      padding: 28px 24px;
-      border: 1px solid #e6ecf5;
-    }
-
-    .exp-item h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #0b1120;
-    }
-
-    .exp-item .meta {
-      color: #475569;
-      font-size: 0.9rem;
-      margin: 4px 0 12px;
-    }
-
-    .exp-item p {
-      color: #334155;
-    }
-
-    /* ----- call to action (contact) ----- */
-    .cta-section {
-      padding: 20px 0 70px;
-      background: #f8fafc;
-    }
-
-    .cta-card {
-      background: #0b1120;
-      color: white;
-      border-radius: 56px;
-      padding: 56px 48px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .cta-card h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      max-width: 500px;
-    }
-
-    .cta-card h2 span {
-      color: #93bbfc;
-    }
-
-    .cta-card .btn-primary {
-      background: white;
-      color: #0b1120;
-      border: none;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-    }
-
-    .cta-card .btn-primary:hover {
-      background: #eef4ff;
-      transform: scale(1.02);
-    }
-
-    .cta-card .btn-outline-light {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.25);
-      color: white;
-      margin-left: 12px;
-    }
-
-    .cta-card .btn-outline-light:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.5);
-    }
-
-    /* ----- footer ----- */
-    .footer {
-      padding: 32px 0 28px;
-      border-top: 1px solid #e2e8f0;
-      background: white;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .footer-social i {
-      font-size: 1.4rem;
-      margin-left: 20px;
-      color: #334155;
-      transition: color 0.15s;
-    }
-
-    .footer-social i:hover {
-      color: #2563eb;
-    }
-
-    .footer-copy {
-      font-size: 0.85rem;
-      color: #64748b;
-    }
-
-    /* ----- responsive tweaks ----- */
-    @media (max-width: 700px) {
-      .hero-content h1 {
-        font-size: 2.5rem;
-      }
-      .navbar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-      }
-      .nav-actions {
-        justify-content: center;
-      }
-      .cta-card {
-        padding: 36px 24px;
-        flex-direction: column;
-        text-align: center;
-      }
-      .cta-card h2 {
-        max-width: 100%;
-      }
-      .exp-grid {
-        flex-direction: column;
-      }
-      .footer-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .footer-social i {
-        margin: 0 12px;
-      }
-      .hero-image .caption {
-        gap: 14px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ajith KUMAR.R — Software Engineer | Cloud & DevOps Engineer. Backend, APIs, Cloud, DevOps and Security.">
+  <meta name="theme-color" content="#061018">
+  <title>Ajith | Software Engineer • Cloud & DevOps</title>
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- header / navigation -->
-  <header class="container">
-    <nav class="navbar">
-      <div class="logo">
-        <i class="fas fa-code"></i> Ajith AK!!!!
-      </div>
-      <div class="nav-links">
-        <a href="#">Work</a>
-        <a href="#">Skills</a>
-        <a href="#">Experience</a>
-        <a href="#">Contact</a>
-      </div>
-      <div class="nav-actions">
-        <a href="#" class="btn btn-outline"><i class="fas fa-file-alt"></i> Resume</a>
-        <a href="#" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Hire</a>
-      </div>
+  <div class="site-glow glow-one"></div>
+  <div class="site-glow glow-two"></div>
+
+  <header class="navbar" id="top">
+    <a class="brand" href="#home" aria-label="Ajith KUMAR.R home">
+      <span>AJITH <b>KUMAR .R</b></span>
+      <small>Software Engineer | Cloud & DevOps</small>
+    </a>
+
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#learning">Learning</a>
+      <a href="#contact">Contact</a>
     </nav>
+
+    <a class="btn btn-outline nav-resume" href="#contact">↓&nbsp; Download Resume</a>
   </header>
 
-  <!-- hero -->
-  <section class="hero container">
-    <div class="hero-grid">
-      <div class="hero-content">
-        <div class="badge"><i class="fas fa-terminal" style="margin-right: 8px;"></i> open to opportunities</div>
-        <h1>Hi, I’m <span>Ajith AK!!!!</span><br />full‑stack developer</h1>
-        <p>I build scalable, human‑centric applications with clean code and modern tooling. 6+ years of experience from startup to enterprise.</p>
-        <div class="hero-buttons">
-          <a href="#" class="btn btn-primary"><i class="fas fa-arrow-right" style="margin-right: 8px;"></i>See projects</a>
-          <a href="#" class="btn btn-outline"><i class="fas fa-envelope"></i>  alex@devportfolio.io</a>
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">👋 Hello, I'm</div>
+        <h1>AJITH <span>KUMAR.R</span></h1>
+        <h2>Software Engineer<br>Cloud &amp; DevOps Engineer</h2>
+
+        <div class="focus-line">
+          <span>Backend</span><i>•</i><span>APIs</span><i>•</i><span>Cloud</span><i>•</i><span>DevOps</span><i>•</i><span>Security</span>
+        </div>
+
+        <p class="hero-text">
+          Building scalable software, automating reliable deployments, strengthening security,
+          and maintaining healthy infrastructure to help businesses operate smoothly and continuously.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">➤&nbsp; View My Work <span>→</span></a>
+          <a class="btn btn-outline" href="#contact">⇩&nbsp; Download Resume</a>
+        </div>
+
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="GitHub">GH</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="mailto:ajith@example.com" aria-label="Email">✉</a>
+          <a href="#" aria-label="X">𝕏</a>
         </div>
       </div>
-      <div class="hero-image">
-        <!-- developer avatar / placeholder -->
-        <svg width="100%" height="200" viewBox="0 0 400 200" style="border-radius: 28px; background: #dce3ef; display: block;">
-          <circle cx="200" cy="90" r="56" fill="#2563eb" opacity="0.2" />
-          <circle cx="200" cy="90" r="42" fill="#2563eb" opacity="0.4" />
-          <circle cx="200" cy="90" r="28" fill="#2563eb" />
-          <path d="M120 160 Q200 200 280 160" stroke="#1e293b" stroke-width="5" fill="none" opacity="0.3" />
-          <rect x="150" y="140" width="100" height="12" rx="6" fill="#1e293b" opacity="0.15" />
-          <text x="20" y="190" font-size="12" fill="#1e293b" opacity="0.5">👨‍💻 full‑stack · react + node</text>
-        </svg>
-        <div class="caption">
-          <span><i class="fas fa-map-pin"></i> Remote · NYC</span>
-          <span><i class="fas fa-clock"></i> 6+ years</span>
-          <span><i class="fas fa-users"></i> 15+ shipped</span>
+
+      <div class="hero-visual">
+        <div class="image-frame">
+          <img src="assets/images/profile.png" alt="Ajith KUMAR.R">
+          <div class="image-gradient"></div>
+        </div>
+        <div class="hero-note">Always<br>learning.<br>Always<br>building.</div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading">
+        <span>ABOUT ME</span>
+        <h2>Passionate about technology and building reliable solutions.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>
+            I'm a Software Engineer with experience in building web applications, APIs and
+            cloud-native solutions. I enjoy working on backend systems, DevOps automation,
+            and infrastructure that make software reliable, scalable and secure.
+          </p>
+          <a class="text-link" href="#contact">More About Me&nbsp; →</a>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><strong>3+</strong><span>Years of<br>Experience</span></article>
+          <article class="stat-card"><strong>10+</strong><span>Projects<br>Completed</span></article>
+          <article class="stat-card"><strong>3</strong><span>Professional<br>Courses</span></article>
+          <article class="stat-card"><strong>100%</strong><span>Commitment to<br>Learning</span></article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- skills / tech stack -->
-  <section class="skills">
-    <div class="container">
-      <div class="section-header">
-        <h2>Tech stack & tools</h2>
-        <p>Core technologies I work with daily to build production‑grade software.</p>
+    <section class="section" id="skills">
+      <div class="section-heading split-heading">
+        <div>
+          <span>TECH STACK</span>
+          <h2>Technologies I work with</h2>
+        </div>
+        <p>Always learning. Always improving.</p>
       </div>
-      <div class="skills-grid">
-        <div class="skill-card"><i class="fab fa-react"></i><span>React</span></div>
-        <div class="skill-card"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-        <div class="skill-card"><i class="fab fa-python"></i><span>Python</span></div>
-        <div class="skill-card"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-        <div class="skill-card"><i class="fab fa-aws"></i><span>AWS</span></div>
-        <div class="skill-card"><i class="fab fa-docker"></i><span>Docker</span></div>
-        <div class="skill-card"><i class="fab fa-git-alt"></i><span>Git / CI</span></div>
-        <div class="skill-card"><i class="fas fa-code"></i><span>TypeScript</span></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- projects -->
-  <section class="projects">
-    <div class="container">
-      <div class="section-header">
-        <h2>Featured projects</h2>
-        <p>Open‑source and client work that reflect my approach to building.</p>
+      <div class="tech-grid">
+        <div class="tech-card"><b>PHP</b><span>PHP</span></div>
+        <div class="tech-card"><b>⌘</b><span>Laravel</span></div>
+        <div class="tech-card"><b>SQL</b><span>MySQL</span></div>
+        <div class="tech-card"><b>Py</b><span>Python</span></div>
+        <div class="tech-card"><b>⚛</b><span>React</span></div>
+        <div class="tech-card"><b>D</b><span>Django</span></div>
+        <div class="tech-card"><b>AWS</b><span>AWS</span></div>
+        <div class="tech-card"><b>◈</b><span>Docker</span></div>
+        <div class="tech-card"><b>☸</b><span>Kubernetes</span></div>
+        <div class="tech-card"><b>🐧</b><span>Linux</span></div>
+        <div class="tech-card"><b>⎇</b><span>Git</span></div>
+        <div class="tech-card"><b>CI</b><span>CI/CD</span></div>
       </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading split-heading">
+        <div>
+          <span>FEATURED PROJECTS</span>
+          <h2>Some of my recent work</h2>
+        </div>
+        <a class="text-link" href="#contact">View All Projects&nbsp; →</a>
+      </div>
+
       <div class="project-grid">
-        <div class="project-card">
-          <div class="icon"><i class="fas fa-cloud-sun"></i></div>
-          <h3>WeatherFlow</h3>
-          <p>Real‑time weather dashboard with interactive maps and alerting system. Built with React and Node microservices.</p>
-          <div class="project-tags">
-            <span>React</span><span>Node</span><span>Mapbox</span>
+        <article class="project-card">
+          <div class="project-art art-job"><span>JOB<br>MANAGEMENT</span></div>
+          <div class="project-body">
+            <small>WEB APPLICATION</small>
+            <h3>Job Management System</h3>
+            <p>A complete job tracking system with user roles, dashboard and reports.</p>
+            <div class="tags"><span>Laravel</span><span>MySQL</span><span>JavaScript</span></div>
+            <div class="card-links"><a href="#contact">View Project →</a><a href="#">◉ GitHub</a></div>
           </div>
-          <a href="#" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="project-card">
-          <div class="icon"><i class="fas fa-wallet"></i></div>
-          <h3>Finwise</h3>
-          <p>Personal finance tracker with budget automation and investment insights. Used by 2k+ users in beta.</p>
-          <div class="project-tags">
-            <span>Python</span><span>Django</span><span>Postgres</span>
-          </div>
-          <a href="#" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="project-card">
-          <div class="icon"><i class="fas fa-cubes"></i></div>
-          <h3>TaskMesh</h3>
-          <p>Collaborative task management with real‑time sync and team workspaces. Fully serverless on AWS.</p>
-          <div class="project-tags">
-            <span>Next.js</span><span>DynamoDB</span><span>WebSocket</span>
-          </div>
-          <a href="#" class="project-link">View project <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <!-- experience snippet -->
-  <section class="experience">
-    <div class="container">
-      <div class="section-header">
-        <h2>Experience & impact</h2>
-        <p>Places where I’ve contributed to meaningful products and teams.</p>
-      </div>
-      <div class="exp-grid">
-        <div class="exp-item">
-          <h4>Senior Full‑stack · Finlytics</h4>
-          <div class="meta"><i class="far fa-calendar-alt"></i> 2022 – present</div>
-          <p>Architected microservices and led frontend migration to React 18. Improved page load by 40%.</p>
-        </div>
-        <div class="exp-item">
-          <h4>Software Engineer · Cloudly</h4>
-          <div class="meta"><i class="far fa-calendar-alt"></i> 2020 – 2022</div>
-          <p>Built internal tooling for infrastructure automation. Designed REST APIs used by 50+ internal teams.</p>
-        </div>
-        <div class="exp-item">
-          <h4>Open‑source contributor</h4>
-          <div class="meta"><i class="fas fa-code-branch"></i> 2018 – present</div>
-          <p>Active maintainer of 3 OSS libraries. Regular contributor to Node.js and React ecosystem.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <article class="project-card">
+          <div class="project-art art-docker"><span>DOCKER<br>DEPLOY</span></div>
+          <div class="project-body">
+            <small>DEVOPS</small>
+            <h3>Dockerized Laravel Application</h3>
+            <p>Containerized Laravel application with Nginx, PHP-FPM and MySQL.</p>
+            <div class="tags"><span>Docker</span><span>Linux</span><span>Nginx</span></div>
+            <div class="card-links"><a href="#contact">View Project →</a><a href="#">◉ GitHub</a></div>
+          </div>
+        </article>
 
-  <!-- call to action / contact -->
-  <section class="cta-section container">
-    <div class="cta-card">
-      <h2>Let’s build something <span>impactful</span> together.</h2>
+        <article class="project-card">
+          <div class="project-art art-aws"><span>AWS<br>CLOUD</span></div>
+          <div class="project-body">
+            <small>CLOUD</small>
+            <h3>AWS Deployment Setup</h3>
+            <p>Deployment setup with EC2, RDS, Load Balancer and CI/CD pipeline concepts.</p>
+            <div class="tags"><span>AWS</span><span>DevOps</span><span>Infrastructure</span></div>
+            <div class="card-links"><a href="#contact">View Project →</a><a href="#">◉ GitHub</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section split-section" id="experience">
       <div>
-        <a href="#" class="btn btn-primary"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Hire me</a>
-        <a href="#" class="btn btn-outline-light"><i class="fab fa-github"></i> GitHub</a>
+        <div class="section-heading">
+          <span>EXPERIENCE</span>
+          <h2>My Professional Journey</h2>
+        </div>
+        <div class="timeline">
+          <article><i></i><div><div class="timeline-top"><h3>Senior Software Engineer</h3><time>2022 – Present</time></div><b>(Company Name)</b><p>Working on backend development, APIs, cloud deployment and DevOps automation.</p></div></article>
+          <article><i></i><div><div class="timeline-top"><h3>Software Engineer</h3><time>2020 – 2022</time></div><b>(Company Name)</b><p>Developed and maintained web applications using Laravel, MySQL and REST APIs.</p></div></article>
+          <article><i></i><div><div class="timeline-top"><h3>Associate Software Engineer</h3><time>2018 – 2020</time></div><b>(Company Name)</b><p>Started my journey in software development.</p></div></article>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-copy">
-          <i class="fas fa-code" style="color: #2563eb; margin-right: 6px;"></i> Ajith AK!!!! · dev portfolio
+      <div id="learning">
+        <div class="section-heading">
+          <span>PROFESSIONAL LEARNING</span>
+          <h2>Courses I Have Completed</h2>
+          <p>Continuous learning to stay updated and grow in my career.</p>
         </div>
-        <div class="footer-social">
-          <i class="fab fa-github"></i>
-          <i class="fab fa-linkedin-in"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-stack-overflow"></i>
-        </div>
-        <div class="footer-copy">
-          &copy; 2026 · sample portfolio
+
+        <div class="learning-grid">
+          <article class="learning-card">
+            <div class="learning-icon">⚙</div>
+            <h3>DevOps Engineering – Advanced AI Based</h3>
+            <strong>HCL GUVI</strong>
+            <p>Modern DevOps practices, cloud technologies, automation and AI-based tools.</p>
+            <em>✓ Completed</em>
+          </article>
+
+          <article class="learning-card">
+            <div class="learning-icon">&lt;/&gt;</div>
+            <h3>MERN Stack Development</h3>
+            <strong>FITA Academy — Anna Nagar, Chennai</strong>
+            <p>Full-stack development with Python/Django and React-based technologies.</p>
+            <em>✓ Completed</em>
+          </article>
+
+          <article class="learning-card">
+            <div class="learning-icon">🛡</div>
+            <h3>Ethical Hacking, Cybersecurity &amp; Digital Forensics</h3>
+            <strong>University of Madras — Affiliated by RUSA</strong>
+            <p>Cybersecurity fundamentals, ethical hacking concepts and digital forensics.</p>
+            <em>✓ Completed</em>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="section lower-grid">
+      <div>
+        <div class="section-heading">
+          <span>EDUCATION</span>
+          <h2>Academic Background</h2>
+        </div>
+        <div class="education-card">
+          <div class="big-icon">🎓</div>
+          <div><h3>Bachelor's Degree</h3><p>(Your Department / Degree Name)</p><p>(Your College Name)</p><small>Year of Graduation — 2018</small></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-heading">
+          <span>ACHIEVEMENTS</span>
+          <h2>Key Highlights</h2>
+        </div>
+        <ul class="achievement-list">
+          <li>Successfully delivered multiple production applications</li>
+          <li>Gained hands-on experience in cloud and DevOps</li>
+          <li>Completed professional courses in emerging technologies</li>
+          <li>Continuously learning and exploring new technologies</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="section-heading">
+          <span>WHAT I DO</span>
+          <h2>Turning ideas into reliable systems</h2>
+        </div>
+        <div class="service-grid">
+          <article><b>▣</b><h3>Backend Development</h3><p>Scalable APIs and web applications</p></article>
+          <article><b>☁</b><h3>Cloud &amp; Infrastructure</h3><p>Deployment and management</p></article>
+          <article><b>⚙</b><h3>DevOps &amp; Automation</h3><p>CI/CD and containerization</p></article>
+          <article><b>◈</b><h3>Security &amp; Best Practices</h3><p>Secure, maintainable systems</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div>
+        <span>LET'S CONNECT</span>
+        <h2>Interested in working together?</h2>
+        <p>I'm always open to discussing new opportunities, interesting projects or just talking about technology.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:ajith@example.com">Get in Touch&nbsp; →</a>
+        <div class="socials"><a href="#">GH</a><a href="#">in</a><a href="mailto:ajith@example.com">✉</a><a href="#">𝕏</a></div>
+      </div>
+      <div class="contact-note">Let's build<br>something great<br>together!</div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>AJITH <b>KUMAR.R</b></strong><small>Software Engineer | Cloud &amp; DevOps Engineer</small></div>
+    <nav><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+    <div class="copyright">Build. Deploy. Secure. Scale.<br>© 2026 Ajith KUMAR.R. All rights reserved.</div>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
