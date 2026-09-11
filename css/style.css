@@ -3440,7 +3440,9 @@ footer{max-width:var(--max);margin:auto;padding:28px 24px 35px;display:grid;grid
   transform:
     translate(3px, -3px);
 }
-
+.project-slider-controls{
+  display: none;
+}
 
 /* =========================================
    TABLET
