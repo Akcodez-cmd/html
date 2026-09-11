@@ -3678,3 +3678,26 @@ footer{max-width:var(--max);margin:auto;padding:28px 24px 35px;display:grid;grid
 @media (max-width:380px){
   .hero h1{font-size:39px}.hero h2{font-size:25px}.btn{width:100%}.hero-actions{display:grid;grid-template-columns:1fr}.tech-grid{grid-template-columns:repeat(2,1fr)}
 }
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .tech-grid {
+        width: 100%;
+        min-width: 0;
+    }
+}
